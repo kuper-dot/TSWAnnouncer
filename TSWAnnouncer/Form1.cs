@@ -6,5 +6,11 @@ namespace TSWAnnouncer
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("You pressed me");
+            label1.Text = "YAYAYAYA";
+        }
     }
 }
