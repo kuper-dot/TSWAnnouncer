@@ -22,15 +22,15 @@ namespace TSWAnnouncer
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (soundPlayed == false)
+            if (soundPlayed == false) //Is sound playing now?
             {
-                soundPlayed = true;
-                if (outputDevice == null)
+                soundPlayed = true; //Now it is playing
+                if (outputDevice == null) //If there is no player - then create one
                 {
                     outputDevice = new WaveOutEvent();
                     outputDevice.PlaybackStopped += OnPlaybackStopped;
                 }
-                if (audioFile == null)
+                if (audioFile == null) //Same with audio source
                 {
                     string path = files.getPath("welcome.mp3");
                     audioFile = new AudioFileReader(path);
@@ -40,7 +40,7 @@ namespace TSWAnnouncer
             }
         }
 
-        private void OnPlaybackStopped(object sender, StoppedEventArgs args)
+        private void OnPlaybackStopped(object sender, StoppedEventArgs args) //Actions to do when files are played
         {
             outputDevice.Dispose();
             outputDevice = null;
@@ -50,7 +50,7 @@ namespace TSWAnnouncer
                 audioFile = null;
             }
             soundPlayed = false;
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,11 +66,16 @@ namespace TSWAnnouncer
                 var first = new AudioFileReader(files.getPath("welcome.mp3"));
                 var second = new AudioFileReader(files.getPath("GTW.mp3"));
 
-                var playlist = new ConcatenatingSampleProvider(new[] { first, second });
+                var playlist = new ConcatenatingSampleProvider(new[] { first, second }); //Createing a one audio file out of many
                 outputDevice.Init(playlist);
 
-                outputDevice.Play();
+                outputDevice.Play(); // And then playing it.
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
