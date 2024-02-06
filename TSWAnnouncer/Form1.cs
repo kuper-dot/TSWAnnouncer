@@ -14,6 +14,7 @@ namespace TSWAnnouncer
     {
         private WaveOutEvent outputDevice;
         private AudioFileReader audioFile;
+        private bool soundPlayed = false;
         public Form1()
         {
             InitializeComponent();
@@ -21,40 +22,55 @@ namespace TSWAnnouncer
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (outputDevice == null)
+            if (soundPlayed == false)
             {
-                outputDevice = new WaveOutEvent();
-                outputDevice.PlaybackStopped += OnPlaybackStopped;
+                soundPlayed = true;
+                if (outputDevice == null)
+                {
+                    outputDevice = new WaveOutEvent();
+                    outputDevice.PlaybackStopped += OnPlaybackStopped;
+                }
+                if (audioFile == null)
+                {
+                    string path = files.getPath("welcome.mp3");
+                    audioFile = new AudioFileReader(path);
+                    outputDevice.Init(audioFile);
+                }
+                outputDevice.Play();
             }
-            if (audioFile == null)
-            {
-                string path = files.getPath("welcome.mp3");
-                audioFile = new AudioFileReader(path);
-                outputDevice.Init(audioFile);
-            }
-            outputDevice.Play();
         }
 
         private void OnPlaybackStopped(object sender, StoppedEventArgs args)
         {
             outputDevice.Dispose();
             outputDevice = null;
-            audioFile.Dispose();
-            audioFile = null;
+            if (audioFile != null)
+            {
+                audioFile.Dispose();
+                audioFile = null;
+            }
+            soundPlayed = false;
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            outputDevice = new WaveOutEvent();
-            var first = new AudioFileReader(files.getPath("welcome.mp3"));
-            var second = new AudioFileReader(files.getPath("GTW.mp3"));
+            if (soundPlayed == false)
+            {
+                soundPlayed = true;
+                if (outputDevice == null)
+                {
+                    outputDevice = new WaveOutEvent();
+                    outputDevice.PlaybackStopped += OnPlaybackStopped;
+                }
+                var first = new AudioFileReader(files.getPath("welcome.mp3"));
+                var second = new AudioFileReader(files.getPath("GTW.mp3"));
 
-            var playlist = new ConcatenatingSampleProvider(new[] { first, second });
-            // to play:
-            outputDevice.Init(playlist);    
-            outputDevice.Play();
+                var playlist = new ConcatenatingSampleProvider(new[] { first, second });
+                outputDevice.Init(playlist);
 
+                outputDevice.Play();
+            }
         }
     }
 }
