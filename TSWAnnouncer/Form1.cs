@@ -41,18 +41,18 @@ namespace TSWAnnouncer
             outputDevice = null;
             audioFile.Dispose();
             audioFile = null;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            outputDevice = new ISampleProvider();
+            outputDevice = new WaveOutEvent();
             var first = new AudioFileReader(files.getPath("welcome.mp3"));
             var second = new AudioFileReader(files.getPath("GTW.mp3"));
 
             var playlist = new ConcatenatingSampleProvider(new[] { first, second });
-
             // to play:
-            outputDevice.Init(playlist);
+            outputDevice.Init(playlist);    
             outputDevice.Play();
 
         }
