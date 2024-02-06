@@ -1,3 +1,25 @@
 {
-  "annonTypes"
+  "main": [
+    {
+      "misc": [
+        {
+          "and": "TL\\main\\and.mp3",
+          "only": "TL\\main\\only.mp3"
+        }
+      ],
+      "initial": [
+        {
+          "welcome": "TL\\main\\welcome aboard this service to.mp3",
+          "calling": "TL\\main\\we will be calling at.mp3"
+        }
+      ],
+      "appr": [
+        {
+          "appr": "TL\\main\\we are now approaching.mp3",
+          "finalstop": "TL\\main\\our final destenation.mp3",
+          "autodoors": "TL\\main\\the doors will open automatically at the next station.mp3"
+        }
+      ]
+    }
+  ]
 }

@@ -64,7 +64,7 @@ namespace TSWAnnouncer
                     outputDevice.PlaybackStopped += OnPlaybackStopped;
                 }
                 var first = new AudioFileReader(files.getPath("welcome.mp3"));
-                var second = new AudioFileReader(files.getPath("GTW.mp3"));
+                var second = new AudioFileReader(files.getPath(null));
 
                 var playlist = new ConcatenatingSampleProvider(new[] { first, second }); //Createing a one audio file out of many
                 outputDevice.Init(playlist);
