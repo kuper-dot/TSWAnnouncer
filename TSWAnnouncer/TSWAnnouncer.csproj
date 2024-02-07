@@ -14,6 +14,8 @@
     <None Remove="Audio\TL\main\and.mp3" />
     <None Remove="Audio\TL\main\only.mp3" />
     <None Remove="Audio\TL\main\our final destination.mp3" />
+    <None Remove="Audio\TL\main\please mind the gap between the train and the platform.mp3" />
+    <None Remove="Audio\TL\main\thank you for travelling with us today.mp3" />
     <None Remove="Audio\TL\main\the doors will open automatically at the next station.mp3" />
     <None Remove="Audio\TL\main\the next station is.mp3" />
     <None Remove="Audio\TL\main\this station is.mp3" />
@@ -41,9 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Audio\GTW.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Audio\TL\main\and.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -51,6 +50,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Audio\TL\main\our final destination.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\please mind the gap between the train and the platform.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\thank you for travelling with us today.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Audio\TL\main\the doors will open automatically at the next station.mp3">
@@ -80,12 +85,6 @@
     <Content Include="Audio\TL\main\welcome aboard this service to.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Audio\TRTS.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\welcome.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Profiles\Packs\TL.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -112,6 +111,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Profiles\Routes\BML\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
 

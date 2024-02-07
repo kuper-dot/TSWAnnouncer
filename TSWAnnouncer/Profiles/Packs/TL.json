@@ -1,25 +1,53 @@
 {
-  "main": [
-    {
-      "misc": [
-        {
-          "and": "TL\\main\\and.mp3",
-          "only": "TL\\main\\only.mp3"
-        }
-      ],
-      "initial": [
-        {
-          "welcome": "TL\\main\\welcome aboard this service to.mp3",
-          "calling": "TL\\main\\we will be calling at.mp3"
-        }
-      ],
-      "appr": [
-        {
-          "appr": "TL\\main\\we are now approaching.mp3",
-          "finalstop": "TL\\main\\our final destenation.mp3",
-          "autodoors": "TL\\main\\the doors will open automatically at the next station.mp3"
-        }
-      ]
+  "info": {
+    "name": "Thameslink",
+    "foldername": "TL",
+    "type": "pack"
+  },
+  "main": {
+    "misc": {
+      "and": "main\\and.mp3",
+      "only": "main\\only.mp3"
+    },
+
+    "initial": {
+      "welcome": "main\\welcome aboard this service to.mp3",
+      "calling": "main\\we will be calling at.mp3",
+      "ns": "the next station is.mp3"
+    },
+
+    "appr": {
+      "shortly": "main\\we will shortly be arriving at.mp3",
+      "appr": "main\\we are now approaching.mp3",
+      "finalstop": "main\\our final destenation.mp3",
+      "autodoors": "main\\the doors will open automatically at the next station.mp3"
+    },
+
+    "atStat": {
+      "thisStat": "main\\this station is.mp3",
+      "allchange": "main\\this train terminates here all change.mp3",
+      "thankyou": "main\\thank you for travelling with us today.mp3",
+      "trainfor": "main\\this train is for.mp3",
+      "trainterm": "main\\this train terminates at.mp3",
+      "calling": "main\\we will be calling at.mp3",
+      "gap": "please mind the gap between the train and the platform.mp3"
     }
-  ]
+  },
+  "config": {
+    "init": {
+
+    },
+    "departed": {
+      "1": "none"
+    },
+    "appr": {
+
+    },
+    "atstat": {
+      "0": "gap",
+      "1": "thisStat",
+      "2": "6"
+    }
+  }
 }
+

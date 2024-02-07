@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,27 +14,75 @@ namespace TSWAnnouncer
 {
     public partial class main : Form
     {
-        public static string jsonprofile = File.ReadAllText(files.getPathRoot(@"Profiles\Packs\TL.json"));
-        public main()
+        public string SelSoundPck;
+        //public static string jsonprofile = File.ReadAllText(files.GetPathRoot(@"Profiles\Packs\TL.json"));
+        //private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        // this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+        public main() => InitializeComponent();
+
+
+        private void button3_Click(object sender, EventArgs e) //Select pack JSON file button
         {
-            InitializeComponent();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                Title = "Select TOC soundpack file",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "json",
+                Filter = "JSON Files (*.json)|*.json",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = false,
+                ShowReadOnly = false
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SelSoundPck = openFileDialog1.FileName;
+                LblSoundPckName.Text = "Sound pack name is: " + files.JSpa(SelSoundPck, "$.info.name");
+            }
+        }
+
+        private void ButSelJSONRoute_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                Title = "Select route config file",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "json",
+                Filter = "JSON Files (*.json)|*.json",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = false,
+                ShowReadOnly = false
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SelSoundPck = openFileDialog1.FileName;
+                LblSelRoute.Text = "Sound pack name is: " + files.JSpa(SelSoundPck, "$.desc.name");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string filepath = @"Packs\TL.json";
-            new sounds().addQueue(filepath, files.JSpa(filepath, "$.main[:1].misc[:1].and"));
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            new sounds().playQueue();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            string filepath = @"Packs\TL.json";
-            new sounds().addQueue(filepath, files.JSpa(filepath, "$.main[:1].misc[:1].only"));
+            int delay;
+            var text = files.JSpa(SelSoundPck, "$.config.atstat.2");
+            if (files.IsDigitsOnly(text))
+            {
+                delay = Convert.ToInt32(text);
+                System.Windows.Forms.MessageBox.Show(text, Convert.ToString(delay.GetType()));
+            }
+            Thread.Sleep(3000);
         }
     }
 }

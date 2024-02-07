@@ -28,96 +28,117 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            label1 = new Label();
-            comboBox1 = new ComboBox();
-            filesBindingSource = new BindingSource(components);
-            label2 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)filesBindingSource).BeginInit();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.LblAppName = new System.Windows.Forms.Label();
+            this.filesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ButSelJSONPack = new System.Windows.Forms.Button();
+            this.LblSoundPckName = new System.Windows.Forms.Label();
+            this.LblSelRoute = new System.Windows.Forms.Label();
+            this.ButSelJSONRoute = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
+            this.SuspendLayout();
             // 
-            // label1
+            // LblAppName
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("MS Reference Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DarkSlateGray;
-            label1.Location = new Point(49, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(710, 40);
-            label1.TabIndex = 0;
-            label1.Text = "Welcome to the Announcment Generator";
-            // 
-            // comboBox1
-            // 
-            comboBox1.DataSource = filesBindingSource;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(263, 90);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(228, 23);
-            comboBox1.TabIndex = 1;
+            this.LblAppName.AutoSize = true;
+            this.LblAppName.BackColor = System.Drawing.Color.Transparent;
+            this.LblAppName.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblAppName.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.LblAppName.Location = new System.Drawing.Point(12, 9);
+            this.LblAppName.Name = "LblAppName";
+            this.LblAppName.Size = new System.Drawing.Size(710, 40);
+            this.LblAppName.TabIndex = 0;
+            this.LblAppName.Text = "Welcome to the Announcment Generator";
             // 
             // filesBindingSource
             // 
-            filesBindingSource.DataSource = typeof(files);
+            this.filesBindingSource.DataSource = typeof(TSWAnnouncer.files);
             // 
-            // label2
+            // openFileDialog1
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(237, 176);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 2;
-            label2.Text = "label2";
-            label2.Click += label2_Click;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // ButSelJSONPack
+            // 
+            this.ButSelJSONPack.Location = new System.Drawing.Point(12, 100);
+            this.ButSelJSONPack.Name = "ButSelJSONPack";
+            this.ButSelJSONPack.Size = new System.Drawing.Size(199, 23);
+            this.ButSelJSONPack.TabIndex = 5;
+            this.ButSelJSONPack.Text = "Sellect pack file";
+            this.ButSelJSONPack.UseVisualStyleBackColor = true;
+            this.ButSelJSONPack.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // LblSoundPckName
+            // 
+            this.LblSoundPckName.AutoSize = true;
+            this.LblSoundPckName.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblSoundPckName.Location = new System.Drawing.Point(217, 100);
+            this.LblSoundPckName.Name = "LblSoundPckName";
+            this.LblSoundPckName.Size = new System.Drawing.Size(186, 21);
+            this.LblSoundPckName.TabIndex = 6;
+            this.LblSoundPckName.Text = "Select TOC sound pack";
+            // 
+            // LblSelRoute
+            // 
+            this.LblSelRoute.AutoSize = true;
+            this.LblSelRoute.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblSelRoute.Location = new System.Drawing.Point(217, 147);
+            this.LblSelRoute.Name = "LblSelRoute";
+            this.LblSelRoute.Size = new System.Drawing.Size(192, 21);
+            this.LblSelRoute.TabIndex = 8;
+            this.LblSelRoute.Text = "Select your route preset";
+            // 
+            // ButSelJSONRoute
+            // 
+            this.ButSelJSONRoute.Location = new System.Drawing.Point(12, 147);
+            this.ButSelJSONRoute.Name = "ButSelJSONRoute";
+            this.ButSelJSONRoute.Size = new System.Drawing.Size(199, 23);
+            this.ButSelJSONRoute.TabIndex = 7;
+            this.ButSelJSONRoute.Text = "Sellect route file";
+            this.ButSelJSONRoute.UseVisualStyleBackColor = true;
+            this.ButSelJSONRoute.Click += new System.EventHandler(this.ButSelJSONRoute_Click);
             // 
             // button1
             // 
-            button1.Location = new Point(534, 197);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(354, 206);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 4;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            this.button1.Location = new System.Drawing.Point(397, 228);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // main
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
-            ClientSize = new Size(800, 320);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
-            Controls.Add(label1);
-            Name = "main";
-            Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)filesBindingSource).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(723, 320);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LblSelRoute);
+            this.Controls.Add(this.ButSelJSONRoute);
+            this.Controls.Add(this.LblSoundPckName);
+            this.Controls.Add(this.ButSelJSONPack);
+            this.Controls.Add(this.LblAppName);
+            this.Name = "main";
+            this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private Label label1;
-        private ComboBox comboBox1;
+        private Label LblAppName;
         private BindingSource filesBindingSource;
-        private Label label2;
+        private OpenFileDialog openFileDialog1;
+        private Button ButSelJSONPack;
+        private Label LblSoundPckName;
+        private Label LblSelRoute;
+        private Button ButSelJSONRoute;
         private Button button1;
-        private Button button2;
     }
 }
