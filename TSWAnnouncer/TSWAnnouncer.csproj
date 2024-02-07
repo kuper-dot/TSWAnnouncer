@@ -11,6 +11,18 @@
 
   <ItemGroup>
     <None Remove="Audio\GTW.mp3" />
+    <None Remove="Audio\TL\main\and.mp3" />
+    <None Remove="Audio\TL\main\only.mp3" />
+    <None Remove="Audio\TL\main\our final destination.mp3" />
+    <None Remove="Audio\TL\main\the doors will open automatically at the next station.mp3" />
+    <None Remove="Audio\TL\main\the next station is.mp3" />
+    <None Remove="Audio\TL\main\this station is.mp3" />
+    <None Remove="Audio\TL\main\this train is for.mp3" />
+    <None Remove="Audio\TL\main\this train terminates at.mp3" />
+    <None Remove="Audio\TL\main\we are now approaching.mp3" />
+    <None Remove="Audio\TL\main\we will be calling at.mp3" />
+    <None Remove="Audio\TL\main\we will shortly be arriving at.mp3" />
+    <None Remove="Audio\TL\main\welcome aboard this service to.mp3" />
     <None Remove="Audio\welcome.mp3" />
     <None Remove="Profiles\Packs\TL.json" />
     <None Remove="TRTS.wav" />
@@ -30,6 +42,42 @@
 
   <ItemGroup>
     <Content Include="Audio\GTW.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\and.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\only.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\our final destination.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\the doors will open automatically at the next station.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\the next station is.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\this station is.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\this train is for.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\this train terminates at.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\we are now approaching.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\we will be calling at.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\we will shortly be arriving at.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\TL\main\welcome aboard this service to.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Audio\TRTS.wav">

@@ -18,7 +18,6 @@ namespace TSWAnnouncer
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new main());
-
         }
     }
     public class files
@@ -49,8 +48,9 @@ namespace TSWAnnouncer
     {
         private WaveOutEvent? outputDevice;
         private AudioFileReader? audioFile;
-        private bool soundPlayed = false;
-        private AudioFileReader[] queue;
+        private bool soundPlayed;
+        private static List<string> audioqueue = new List<string>();
+        private List<AudioFileReader> queue;
 
         public void OnPlaybackStopped(object sender, StoppedEventArgs args) //Actions to do when files are played
         {
@@ -62,12 +62,13 @@ namespace TSWAnnouncer
                 audioFile = null;
             }
             soundPlayed = false;
-            Array.Clear(queue);
+            //queue.Clear();
 
         }
 
         public void playQueue()
         {
+
             if (soundPlayed == false)
             {
                 soundPlayed = true;
@@ -77,16 +78,26 @@ namespace TSWAnnouncer
                     outputDevice.PlaybackStopped += OnPlaybackStopped;
                 }
 
-                var playlist = new ConcatenatingSampleProvider(queue);
+                List<AudioFileReader> audio = new List<AudioFileReader>();
+                foreach (string i in audioqueue)
+                {
+                    audio.Add(new AudioFileReader(i));
+                }
+                var playlist = new ConcatenatingSampleProvider(audio);
                 //Createing a one audio file out of many
                 outputDevice.Init(playlist);
                 outputDevice.Play();// And then playing it.
             }
         }
 
-        public void addQueue(string filename) //TO DO APPEND TO QUEUE ARRAY
+        public void addQueue(string filepath, string filename) //TO DO APPEND TO QUEUE ARRAY
         {
-                var audio = new AudioFileReader(files.getPath(filename));
+            //var audio = new AudioFileReader(files.getPath(filename));
+            // if (queue == null) { List<AudioFileReader> queue = new List<AudioFileReader> { audio }; }
+            // else { queue.Add(audio); }
+            if (audioqueue == null) { List<string> audioqueue = new List<string>() { files.getPath(filename) }; }
+            else { audioqueue.Add(files.getPath(filename)); }
+            
         }
     }
 }

@@ -28,75 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.filesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            label1 = new Label();
+            comboBox1 = new ComboBox();
+            filesBindingSource = new BindingSource(components);
+            label2 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            ((System.ComponentModel.ISupportInitialize)filesBindingSource).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(49, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(710, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to the Announcment Generator";
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("MS Reference Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.DarkSlateGray;
+            label1.Location = new Point(49, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(710, 40);
+            label1.TabIndex = 0;
+            label1.Text = "Welcome to the Announcment Generator";
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.filesBindingSource;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(263, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 23);
-            this.comboBox1.TabIndex = 1;
+            comboBox1.DataSource = filesBindingSource;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(263, 90);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(228, 23);
+            comboBox1.TabIndex = 1;
             // 
             // filesBindingSource
             // 
-            this.filesBindingSource.DataSource = typeof(TSWAnnouncer.files);
+            filesBindingSource.DataSource = typeof(files);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(237, 176);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            label2.AutoSize = true;
+            label2.Location = new Point(237, 176);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 2;
+            label2.Text = "label2";
+            label2.Click += label2_Click;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(534, 197);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(534, 197);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(354, 206);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 4;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(800, 320);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Name = "main";
-            this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightGray;
+            ClientSize = new Size(800, 320);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(label2);
+            Controls.Add(comboBox1);
+            Controls.Add(label1);
+            Name = "main";
+            Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)filesBindingSource).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -106,5 +118,6 @@
         private BindingSource filesBindingSource;
         private Label label2;
         private Button button1;
+        private Button button2;
     }
 }

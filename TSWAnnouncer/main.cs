@@ -21,15 +21,19 @@ namespace TSWAnnouncer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int[] array2 = new int[5];
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(array2[3]));
-            Array.Clear(array2);
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(array2[3]));
-            if (array2[0] == null)
-            {
-                System.Windows.Forms.MessageBox.Show("Yay");
-            }
+            string filepath = @"Packs\TL.json";
+            new sounds().addQueue(filepath, files.JSpa(filepath, "$.main[:1].misc[:1].and"));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             new sounds().playQueue();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            string filepath = @"Packs\TL.json";
+            new sounds().addQueue(filepath, files.JSpa(filepath, "$.main[:1].misc[:1].only"));
         }
     }
 }
