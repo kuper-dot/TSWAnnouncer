@@ -43,11 +43,33 @@
     "appr": {
 
     },
-    "atstat": {
-      "0": "gap",
-      "1": "thisStat",
-      "2": "6"
-    }
+    "atstat": [
+      {
+        "name": "atStat.gap",
+        "opt": "true",
+        "delay": "0"
+      },
+      {
+        "name": "atStat.thisStat",
+        "opt": "false",
+        "delay": "0"
+      },
+      {
+        "name": "!curstat",
+        "delay": "6",
+        "opt": "false"
+      },
+      {
+        "name": "atStat.trainterm",
+        "opt": "false",
+        "delay": "0"
+      },
+      {
+        "name": "!nxtstatlist",
+        "opt": "false",
+        "delay": "0"
+      }
+    ]
   }
 }
 

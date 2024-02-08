@@ -113,6 +113,9 @@ namespace TSWAnnouncer
 
     public class playback
     {
+        public static void first(string CurStop, string LastStop)
+        {
 
+        }
     }
 }

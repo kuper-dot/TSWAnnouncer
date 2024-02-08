@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,14 +76,15 @@ namespace TSWAnnouncer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int delay;
-            var text = files.JSpa(SelSoundPck, "$.config.atstat.2");
-            if (files.IsDigitsOnly(text))
-            {
-                delay = Convert.ToInt32(text);
-                System.Windows.Forms.MessageBox.Show(text, Convert.ToString(delay.GetType()));
-            }
-            Thread.Sleep(3000);
+            /*var x = files.JSpa(SelSoundPck, "$.config.atstat");
+            JObject a = (JObject) JsonConvert.DeserializeObject(x);
+            int i = a.Count;
+            System.Windows.Forms.MessageBox.Show(Convert.ToString(i));
+            System.Windows.Forms.MessageBox.Show(Convert.ToString(x));*/
+            JObject jObject = JObject.Parse(File.ReadAllText(SelSoundPck));
+            System.Windows.Forms.MessageBox.Show(Convert.ToString(jObject));
+            JToken memberName = jObject["members"].First["config"];
+            System.Windows.Forms.MessageBox.Show(Convert.ToString(memberName)); // Joe
         }
     }
 }
