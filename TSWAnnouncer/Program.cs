@@ -62,26 +62,14 @@ namespace TSWAnnouncer
         }
     }
 
-    public class sounds
+    public class playback
     {
         private WaveOutEvent? outputDevice;
         private AudioFileReader? audioFile;
-        private bool soundPlayed;
+        private static bool soundPlayed;
         private static List<string> audioqueue = new();
-
-        public void OnPlaybackStopped(object sender, StoppedEventArgs args) //Actions to do when files are played
-        {
-            outputDevice.Dispose();
-            outputDevice = null;
-            if (audioFile != null)
-            {
-                audioFile.Dispose();
-                audioFile = null;
-            }
-            soundPlayed = false;
-            audioqueue.Clear();
-
-        }
+        public static int? curStop;
+        public static int? lasStop;
 
         public void playQueue()
         {
@@ -99,13 +87,22 @@ namespace TSWAnnouncer
                 if (outputDevice == null)
                 {
                     outputDevice = new WaveOutEvent();
-                    outputDevice.PlaybackStopped += OnPlaybackStopped;
                 }
 
                 var playlist = new ConcatenatingSampleProvider(queue);
                 //Createing a one audio file out of many
                 outputDevice.Init(playlist);
                 outputDevice.Play();// And then playing it.
+                while (outputDevice.PlaybackState != PlaybackState.Stopped) ;
+                outputDevice.Dispose();
+                outputDevice = null;
+                if (audioFile != null)
+                {
+                    audioFile.Dispose();
+                    audioFile = null;
+                }
+                soundPlayed = false;
+                audioqueue.Clear();
             }
         }
 
@@ -115,12 +112,7 @@ namespace TSWAnnouncer
             else { audioqueue.Add(files.GetPathAudio(filename)); }
             
         }
-    }
 
-    public class playback
-    {
-        public static int? curStop;
-        public static int? lasStop;
         public static void StatCheck(string route)
         {
             if (curStop == null)
@@ -132,6 +124,7 @@ namespace TSWAnnouncer
                 lasStop = files.JSpaCountArr(route, "$.statlist[*]");
             }
         }
+
         public static void Appr(string route, string pack)
         {
             curStop = 1;
@@ -142,11 +135,11 @@ namespace TSWAnnouncer
             while (curSequence != sequenceCount)
             {
                 string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].seq[" + curSequence + "].name");
-                if (sequenceStr.Contains("#"))
+                if (sequenceStr.Contains("#")) //Going though sequence in route JSON file
                 {
                     int curAudio = 0;
-                    int totalAudio = files.JSpaCountArr(pack, "$.conf.appr."+sequenceStr);
-                    while (curAudio != totalAudio)
+                    int totalAudio = files.JSpaCountArr(pack, "$.conf.appr." + sequenceStr + "[*]");
+                    while (curAudio < totalAudio) //This is executing any predifined sequnses from soundPack
                     {
                         string audioName = files.JSpa(pack, "$.conf.appr." + sequenceStr + "[" + curAudio + "].name");
                         if (audioName.Contains("!"))
@@ -154,20 +147,30 @@ namespace TSWAnnouncer
                             if (audioName == "!curstat")
                             {
                                 var statName = files.JSpa(route, "$.statlist[" + curStop + "].name");
-                                new sounds().AddQueue("TL\\stations\\low\\" + statName + ".mp3");
+                                var folder = files.JSpa(pack, "$.info.foldername");
+                                new playback().AddQueue(folder + "\\stations\\low\\" + statName + ".mp3");
                             }
                         }
                         else
                         {
                             var temp = files.JSpa(pack, "$.main.appr." + audioName);
-                            new sounds().AddQueue(temp);
+                            new playback().AddQueue(temp);
                         }
-                    curAudio++;
+                        curAudio++;
                     }
+                    new playback().playQueue();
                 }
-            curSequence++;
+                else if (sequenceStr.Contains("\\")) //Change here for actions
+                {
+                    Thread.Sleep(1000);
+                    var filename = files.JSpa(route, "$.statlist[" + curStop + "].seq[" + curSequence + "].*");
+                    new playback().AddQueue(filename);
+                    new playback().playQueue();
+                }
+                curSequence++;
             }
-            new sounds().playQueue();
+            new playback().playQueue();
         }
+
     }
 }
