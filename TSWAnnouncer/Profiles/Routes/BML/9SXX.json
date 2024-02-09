@@ -9,22 +9,22 @@
   },
   "statlist": [
     {
+      "name": "ECR"
+    },
+    {
       "name": "GTW",
       "seq": [
         {
           "name": "#shortly"
         },
         {
-          "name": "change",
-          "path": "change\\other national rail services.mp3"
+          "name": "change\\other national rail services.mp3"
         },
         {
-          "name": "",
-          "path": "belong"
+          "name": "!belong"
         },
         {
-          "name": "",
-          "path": "oyster"
+          "path": "!oyster"
         }
       ]
     },

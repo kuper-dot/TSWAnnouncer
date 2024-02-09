@@ -43,6 +43,13 @@ namespace TSWAnnouncer
             JToken acme = o.SelectToken(path);
             return Convert.ToString(acme);
         }
+
+        public static int JSpaCountArr(string filename, string path)
+        {
+            var token = JToken.Parse(File.ReadAllText(filename));
+            var count = token.SelectTokens(path).Count();
+            return count;
+        }
         public static bool IsDigitsOnly(string str)
         {
             foreach (char c in str)
@@ -102,9 +109,8 @@ namespace TSWAnnouncer
             }
         }
 
-        public void AddQueue(string filepath, string jsonpath) 
+        public void AddQueue(string filename) 
         {
-            var filename = files.JSpa(filepath, jsonpath);
             if (audioqueue == null) { List<string> audioqueue = new() { files.GetPathAudio(filename) }; }
             else { audioqueue.Add(files.GetPathAudio(filename)); }
             
@@ -113,9 +119,55 @@ namespace TSWAnnouncer
 
     public class playback
     {
-        public static void appr()
+        public static int? curStop;
+        public static int? lasStop;
+        public static void StatCheck(string route)
         {
-
+            if (curStop == null)
+            {
+                curStop = 0;
+            }
+            if (lasStop == null)
+            {
+                lasStop = files.JSpaCountArr(route, "$.statlist[*]");
+            }
+        }
+        public static void Appr(string route, string pack)
+        {
+            curStop = 1;
+            int curSequence = 0;
+            playback.StatCheck(route);
+            // System.Windows.Forms.MessageBox.Show(Convert.ToString(lasstop));
+            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].seq[*]");
+            while (curSequence != sequenceCount)
+            {
+                string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].seq[" + curSequence + "].name");
+                if (sequenceStr.Contains("#"))
+                {
+                    int curAudio = 0;
+                    int totalAudio = files.JSpaCountArr(pack, "$.conf.appr."+sequenceStr);
+                    while (curAudio != totalAudio)
+                    {
+                        string audioName = files.JSpa(pack, "$.conf.appr." + sequenceStr + "[" + curAudio + "].name");
+                        if (audioName.Contains("!"))
+                        {
+                            if (audioName == "!curstat")
+                            {
+                                var statName = files.JSpa(route, "$.statlist[" + curStop + "].name");
+                                new sounds().AddQueue("TL\\stations\\low\\" + statName + ".mp3");
+                            }
+                        }
+                        else
+                        {
+                            var temp = files.JSpa(pack, "$.main.appr." + audioName);
+                            new sounds().AddQueue(temp);
+                        }
+                    curAudio++;
+                    }
+                }
+            curSequence++;
+            }
+            new sounds().playQueue();
         }
     }
 }

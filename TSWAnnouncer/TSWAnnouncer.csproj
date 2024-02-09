@@ -11,23 +11,6 @@
 
   <ItemGroup>
     <None Remove="Audio\GTW.mp3" />
-    <None Remove="Audio\TL\main\and.mp3" />
-    <None Remove="Audio\TL\main\change here for.mp3" />
-    <None Remove="Audio\TL\main\only.mp3" />
-    <None Remove="Audio\TL\main\our final destination.mp3" />
-    <None Remove="Audio\TL\main\oyster and contactless payments may only be used on certain routes and at specific stations.mp3" />
-    <None Remove="Audio\TL\main\please make sure you have all your belongings and take care as you leave the train.mp3" />
-    <None Remove="Audio\TL\main\please mind the gap between the train and the platform.mp3" />
-    <None Remove="Audio\TL\main\thank you for travelling with us today.mp3" />
-    <None Remove="Audio\TL\main\the doors will open automatically at the next station.mp3" />
-    <None Remove="Audio\TL\main\the next station is.mp3" />
-    <None Remove="Audio\TL\main\this station is.mp3" />
-    <None Remove="Audio\TL\main\this train is for.mp3" />
-    <None Remove="Audio\TL\main\this train terminates at.mp3" />
-    <None Remove="Audio\TL\main\we are now approaching.mp3" />
-    <None Remove="Audio\TL\main\we will be calling at.mp3" />
-    <None Remove="Audio\TL\main\we will shortly be arriving at.mp3" />
-    <None Remove="Audio\TL\main\welcome aboard this service to.mp3" />
     <None Remove="Audio\welcome.mp3" />
     <None Remove="Profiles\Packs\TL.json" />
     <None Remove="Profiles\Routes\BML\9SXX.json" />
@@ -47,57 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Audio\TL\main\and.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\change here for.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\only.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\our final destination.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\oyster and contactless payments may only be used on certain routes and at specific stations.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\please make sure you have all your belongings and take care as you leave the train.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\please mind the gap between the train and the platform.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\thank you for travelling with us today.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\the doors will open automatically at the next station.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\the next station is.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\this station is.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\this train is for.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\this train terminates at.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\we are now approaching.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\we will be calling at.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\we will shortly be arriving at.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\TL\main\welcome aboard this service to.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Profiles\Packs\TL.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -128,6 +60,63 @@
 
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Audio\TL\main\and.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\change here for.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\only.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\our final destination.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\oyster and contactless payments may only be used on certain routes and at specific stations.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\please make sure you have all your belongings and take care as you leave the train.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\please mind the gap between the train and the platform.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\thank you for travelling with us today.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\the doors will open automatically at the next station.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\the next station is.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\this station is.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\this train is for.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\this train terminates at.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\this train terminates here all change.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\we are now approaching.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\we will be calling at.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\we will shortly be arriving at.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Audio\TL\main\welcome aboard this service to.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>

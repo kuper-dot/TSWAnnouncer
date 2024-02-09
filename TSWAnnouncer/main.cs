@@ -89,7 +89,7 @@ namespace TSWAnnouncer
 
         private void button1_Click(object sender, EventArgs e) //Start Button
         {
-           
+            playback.Appr(SelRoute, SelSoundPck);
         }
     }
 }
