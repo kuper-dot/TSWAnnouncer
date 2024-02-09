@@ -13,14 +13,17 @@
     "initial": {
       "welcome": "main\\welcome aboard this service to.mp3",
       "calling": "main\\we will be calling at.mp3",
-      "ns": "the next station is.mp3"
+      "ns": "main\\the next station is.mp3"
     },
 
     "appr": {
       "shortly": "main\\we will shortly be arriving at.mp3",
       "appr": "main\\we are now approaching.mp3",
       "finalstop": "main\\our final destenation.mp3",
-      "autodoors": "main\\the doors will open automatically at the next station.mp3"
+      "autodoors": "main\\the doors will open automatically at the next station.mp3",
+      "chng": "main\\change here for.mp3",
+      "oyster": "main\\oyster and contactless payments may only be used on certain routes and at specific stations.mp3",
+      "belong": "main\\please make sure you have all your belongings and take care as you leave the train.mp3"
     },
 
     "atStat": {
@@ -30,46 +33,24 @@
       "trainfor": "main\\this train is for.mp3",
       "trainterm": "main\\this train terminates at.mp3",
       "calling": "main\\we will be calling at.mp3",
-      "gap": "please mind the gap between the train and the platform.mp3"
+      "gap": "main\\please mind the gap between the train and the platform.mp3"
     }
   },
-  "config": {
-    "init": {
-
-    },
-    "departed": {
-      "1": "none"
-    },
+  "conf": {
     "appr": {
-
-    },
-    "atstat": [
-      {
-        "name": "atStat.gap",
-        "opt": "true",
-        "delay": "0"
-      },
-      {
-        "name": "atStat.thisStat",
-        "opt": "false",
-        "delay": "0"
-      },
-      {
-        "name": "!curstat",
-        "delay": "6",
-        "opt": "false"
-      },
-      {
-        "name": "atStat.trainterm",
-        "opt": "false",
-        "delay": "0"
-      },
-      {
-        "name": "!nxtstatlist",
-        "opt": "false",
-        "delay": "0"
-      }
-    ]
+      "shortly": [
+        {
+          "name": "shortly"
+        },
+        {
+          "name": "!curstat"
+        }
+      ]
+    }
   }
 }
+
+
+
+ 
 

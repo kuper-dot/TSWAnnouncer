@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "9SXX Cambridge to Brighton ThamesLink",
+    "type": "route"
+  },
+  "initdata": {
+    "firstop": "ECR",
+    "lasstop": "BTN"
+  },
+  "statlist": [
+    {
+      "name": "GTW",
+      "seq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "change",
+          "path": "change\\other national rail services.mp3"
+        },
+        {
+          "name": "",
+          "path": "belong"
+        },
+        {
+          "name": "",
+          "path": "oyster"
+        }
+      ]
+    },
+    {
+      "name": "TBD"
+    },
+    {
+      "name": "HHE"
+    },
+    {
+      "name": "BUG"
+    },
+    {
+      "name": "BTN"
+    }
+  ]
+}

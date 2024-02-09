@@ -36,7 +36,9 @@
             this.LblSoundPckName = new System.Windows.Forms.Label();
             this.LblSelRoute = new System.Windows.Forms.Label();
             this.ButSelJSONRoute = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButStart = new System.Windows.Forms.Button();
+            this.LblFrom = new System.Windows.Forms.Label();
+            this.LblTo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,15 +102,33 @@
             this.ButSelJSONRoute.UseVisualStyleBackColor = true;
             this.ButSelJSONRoute.Click += new System.EventHandler(this.ButSelJSONRoute_Click);
             // 
-            // button1
+            // ButStart
             // 
-            this.button1.Location = new System.Drawing.Point(397, 228);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButStart.Enabled = false;
+            this.ButStart.Location = new System.Drawing.Point(12, 207);
+            this.ButStart.Name = "ButStart";
+            this.ButStart.Size = new System.Drawing.Size(75, 23);
+            this.ButStart.TabIndex = 9;
+            this.ButStart.Text = "Start";
+            this.ButStart.UseVisualStyleBackColor = true;
+            this.ButStart.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // LblFrom
+            // 
+            this.LblFrom.AutoSize = true;
+            this.LblFrom.Location = new System.Drawing.Point(105, 210);
+            this.LblFrom.Name = "LblFrom";
+            this.LblFrom.Size = new System.Drawing.Size(0, 15);
+            this.LblFrom.TabIndex = 10;
+            // 
+            // LblTo
+            // 
+            this.LblTo.AutoSize = true;
+            this.LblTo.Location = new System.Drawing.Point(94, 236);
+            this.LblTo.Name = "LblTo";
+            this.LblTo.Size = new System.Drawing.Size(0, 15);
+            this.LblTo.TabIndex = 11;
+            this.LblTo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // main
             // 
@@ -116,7 +136,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(723, 320);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LblTo);
+            this.Controls.Add(this.LblFrom);
+            this.Controls.Add(this.ButStart);
             this.Controls.Add(this.LblSelRoute);
             this.Controls.Add(this.ButSelJSONRoute);
             this.Controls.Add(this.LblSoundPckName);
@@ -139,6 +161,8 @@
         private Label LblSoundPckName;
         private Label LblSelRoute;
         private Button ButSelJSONRoute;
-        private Button button1;
+        private Button ButStart;
+        private Label LblFrom;
+        private Label LblTo;
     }
 }

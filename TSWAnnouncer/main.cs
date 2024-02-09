@@ -16,6 +16,7 @@ namespace TSWAnnouncer
     public partial class main : Form
     {
         public string SelSoundPck;
+        public string SelRoute;
         //public static string jsonprofile = File.ReadAllText(files.GetPathRoot(@"Profiles\Packs\TL.json"));
         //private System.Windows.Forms.OpenFileDialog openFileDialog1;
         // this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -46,6 +47,11 @@ namespace TSWAnnouncer
                 SelSoundPck = openFileDialog1.FileName;
                 LblSoundPckName.Text = "Sound pack name is: " + files.JSpa(SelSoundPck, "$.info.name");
             }
+
+            if (SelSoundPck != null && SelRoute != null)
+            {
+                ButStart.Enabled = true;
+            }
         }
 
         private void ButSelJSONRoute_Click(object sender, EventArgs e)
@@ -69,22 +75,21 @@ namespace TSWAnnouncer
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                SelSoundPck = openFileDialog1.FileName;
-                LblSelRoute.Text = "Sound pack name is: " + files.JSpa(SelSoundPck, "$.desc.name");
+                SelRoute = openFileDialog1.FileName;
+                LblSelRoute.Text = "Route pack name: " + files.JSpa(SelRoute, "$.info.name");
+                LblFrom.Text = "Starting from: " + files.JSpa(SelRoute, "$.initdata.firstop");
+                LblTo.Text = "Terminating at: " + files.JSpa(SelRoute, "$.initdata.lasstop");
+            }
+
+            if (SelSoundPck != null && SelRoute != null)
+            {
+                ButStart.Enabled = true;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Start Button
         {
-            /*var x = files.JSpa(SelSoundPck, "$.config.atstat");
-            JObject a = (JObject) JsonConvert.DeserializeObject(x);
-            int i = a.Count;
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(i));
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(x));*/
-            JObject jObject = JObject.Parse(File.ReadAllText(SelSoundPck));
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(jObject));
-            JToken memberName = jObject["members"].First["config"];
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(memberName)); // Joe
+           
         }
     }
 }
