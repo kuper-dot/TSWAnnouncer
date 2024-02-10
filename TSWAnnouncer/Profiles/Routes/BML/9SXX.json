@@ -13,7 +13,7 @@
     },
     {
       "name": "GTW",
-      "seq": [
+      "arrseq": [
         {
           "name": "#shortly"
         },
@@ -24,21 +24,86 @@
           "name": "!belong"
         },
         {
-          "path": "!oyster"
+          "name": "!oyster"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ],
+      "depseq": []
+    },
+    {
+      "name": "TBD",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
         }
       ]
     },
     {
-      "name": "TBD"
+      "name": "HHE",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ]
     },
     {
-      "name": "HHE"
+      "name": "BUG",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ]
     },
     {
-      "name": "BUG"
-    },
-    {
-      "name": "BTN"
+      "name": "BTN",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services alight here for services to eastbourne hastings and.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ]
     }
   ]
 }

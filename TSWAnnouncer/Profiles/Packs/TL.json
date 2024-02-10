@@ -19,9 +19,9 @@
     "appr": {
       "shortly": "TL\\main\\we will shortly be arriving at.mp3",
       "appr": "TL\\main\\we are now approaching.mp3",
-      "finalstop": "TL\\main\\our final destenation.mp3",
+      "finalstop": "TL\\main\\our final destination.mp3",
       "autodoors": "TL\\main\\the doors will open automatically at the next station.mp3",
-      "chng": "TL\\main\\change here for.mp3",
+      "change": "TL\\main\\change here for.mp3",
       "oyster": "TL\\main\\oyster and contactless payments may only be used on certain routes and at specific stations.mp3",
       "belong": "TL\\main\\please make sure you have all your belongings and take care as you leave the train.mp3"
     },
@@ -44,6 +44,43 @@
         },
         {
           "name": "!curstat"
+        }
+      ],
+      "#shortlyfinal": [
+        {
+          "name": "shortly"
+        },
+        {
+          "name": "!curstat"
+        },
+        {
+          "name": "!finalstop"
+        }
+      ]
+    },
+    "atStat": {
+      "#thisis": [
+        {
+          "name": "thisStat"
+        },
+        {
+          "name": "!curstat"
+        }
+      ],
+      "#lasstop": [
+        {
+          "name": "trainterm"
+        },
+        {
+          "name": "!lasstop"
+        }
+      ],
+      "#calling": [
+        {
+          "name": "calling"
+        },
+        {
+          "name": "!calling"
         }
       ]
     }

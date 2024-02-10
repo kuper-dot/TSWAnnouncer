@@ -22,7 +22,6 @@ namespace TSWAnnouncer
         // this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
         public main() => InitializeComponent();
 
-
         private void button3_Click(object sender, EventArgs e) //Select pack JSON file button
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
@@ -89,7 +88,15 @@ namespace TSWAnnouncer
 
         private void button1_Click(object sender, EventArgs e) //Start Button
         {
-            playback.Appr(SelRoute, SelSoundPck);
+            playback.play(SelRoute, SelSoundPck);
+        }
+    }
+
+    public class mainFormUpdates
+    {
+        public void updateText(TextBox target, string s)
+        {
+            target.Text = s;
         }
     }
 }

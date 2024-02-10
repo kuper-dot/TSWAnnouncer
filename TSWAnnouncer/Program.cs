@@ -70,6 +70,9 @@ namespace TSWAnnouncer
         private static List<string> audioqueue = new();
         public static int? curStop;
         public static int? lasStop;
+        public static int? lasAnnon; //0 - dep 1 - shortly 2-atstat
+        public static string route;
+        public static string pack;
 
         public void playQueue()
         {
@@ -123,18 +126,46 @@ namespace TSWAnnouncer
             {
                 lasStop = files.JSpaCountArr(route, "$.statlist[*]");
             }
+            if (lasAnnon == null)
+            {
+                lasAnnon = 0;
+            }
         }
 
-        public static void Appr(string route, string pack)
+        public static void play(string rt, string pck)
         {
-            curStop = 1;
-            int curSequence = 0;
+            route = rt;
+            pack = pck;
             playback.StatCheck(route);
-            // System.Windows.Forms.MessageBox.Show(Convert.ToString(lasstop));
-            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].seq[*]");
+            if (lasAnnon == 2)
+            {
+                Dep();
+            }
+            else if (lasAnnon == 0)
+            {
+                Appr();
+            }
+            else if (lasAnnon == 1)
+            {
+                atStat();
+            }
+        }
+        public static void Appr()
+        {
+            int curSequence = 0;
+            var packFolder = files.JSpa(pack, "$.info.foldername");
+            
+            //System.Windows.Forms.MessageBox.Show(Convert.ToString(curStop));
+            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].arrseq[*]");
+            if (sequenceCount == 0)
+            {
+                lasAnnon = 1;
+                return;
+            }
             while (curSequence != sequenceCount)
             {
-                string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].seq[" + curSequence + "].name");
+                int sleep = 1000;
+                string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + curSequence + "].name");
                 if (sequenceStr.Contains("#")) //Going though sequence in route JSON file
                 {
                     int curAudio = 0;
@@ -147,8 +178,7 @@ namespace TSWAnnouncer
                             if (audioName == "!curstat")
                             {
                                 var statName = files.JSpa(route, "$.statlist[" + curStop + "].name");
-                                var folder = files.JSpa(pack, "$.info.foldername");
-                                new playback().AddQueue(folder + "\\stations\\low\\" + statName + ".mp3");
+                                new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
                             }
                         }
                         else
@@ -162,15 +192,114 @@ namespace TSWAnnouncer
                 }
                 else if (sequenceStr.Contains("\\")) //Change here for actions
                 {
-                    Thread.Sleep(1000);
-                    var filename = files.JSpa(route, "$.statlist[" + curStop + "].seq[" + curSequence + "].*");
-                    new playback().AddQueue(filename);
+                    var fileName = files.JSpa(pack, "$.main.appr.change");
+                    new playback().AddQueue(fileName);
+                    fileName = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + curSequence + "].*");
+                    new playback().AddQueue(fileName);
+                    new playback().playQueue();
+                }   
+                else if (sequenceStr.Contains("!"))
+                {
+                    sequenceStr = sequenceStr.Remove(0, 1);
+                    var fileName = files.JSpa(pack, "$.main.appr."+sequenceStr);
+                    new playback().AddQueue(fileName);
                     new playback().playQueue();
                 }
+                else if (sequenceStr.Contains("@"))
+                {
+                    sequenceStr = sequenceStr.Remove(0, 1);
+                    sleep = Convert.ToInt32(sequenceStr) * 1000;
+                }
                 curSequence++;
+                Thread.Sleep(sleep);
             }
-            new playback().playQueue();
+            lasAnnon = 1;
         }
 
+        public static void Dep()
+        {
+            int curSequence = 0;
+            var packFolder = files.JSpa(pack, "$.info.foldername");
+
+            //System.Windows.Forms.MessageBox.Show(Convert.ToString(curStop));
+            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].depseq[*]");
+            if (sequenceCount == 0)
+            {
+                lasAnnon = 0;
+                return;
+            }
+            while (curSequence != sequenceCount)
+            {
+               // string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + curSequence + "].name");
+            }
+        }
+
+        public static void atStat()
+        {
+            int curSequence = 0;
+            var packFolder = files.JSpa(pack, "$.info.foldername");
+
+            //System.Windows.Forms.MessageBox.Show(Convert.ToString(curStop));
+            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].atseq[*]");
+            if (sequenceCount == 0)
+            {
+                lasAnnon = 2;
+                curStop++;
+                return;
+            }
+            while (curSequence != sequenceCount)
+            {
+                int sleep = 1000;
+                string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].atseq[" + curSequence + "].name");
+                if (sequenceStr.Contains("#")) //Going though sequence in route JSON file
+                {
+                    int curAudio = 0;
+                    int totalAudio = files.JSpaCountArr(pack, "$.conf.atStat." + sequenceStr + "[*]");
+                    while (curAudio < totalAudio) //This is executing any predifined sequnses from soundPack
+                    {
+                        string audioName = files.JSpa(pack, "$.conf.atStat." + sequenceStr + "[" + curAudio + "].name");
+                        if (audioName.Contains("!"))
+                        {
+                            if (audioName == "!curstat")
+                            {
+                                var statName = files.JSpa(route, "$.statlist[" + curStop + "].name");
+                                new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
+                            }
+                        }
+                        else //Conplete two other ! func
+                        {
+                            var temp = files.JSpa(pack, "$.main.atStat." + audioName);
+                            new playback().AddQueue(temp);
+                        }
+                        curAudio++;
+                    }
+                    new playback().playQueue();
+                }
+                else if (sequenceStr.Contains("\\")) //Change here for actions
+                {
+                    var fileName = files.JSpa(pack, "$.main.atStat.change");
+                    new playback().AddQueue(fileName);
+                    fileName = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + curSequence + "].*");
+                    new playback().AddQueue(fileName);
+                    new playback().playQueue();
+                }
+                else if (sequenceStr.Contains("!"))
+                {
+                    sequenceStr = sequenceStr.Remove(0, 1);
+                    var fileName = files.JSpa(pack, "$.main.atStat." + sequenceStr);
+                    new playback().AddQueue(fileName);
+                    new playback().playQueue();
+                }
+                else if (sequenceStr.Contains("@"))
+                {
+                    sequenceStr = sequenceStr.Remove(0, 1);
+                    sleep = Convert.ToInt32(sequenceStr) * 1000;
+                }
+                curSequence++;
+                Thread.Sleep(sleep);
+            }
+            lasAnnon = 2;
+            curStop++;
+        }
     }
 }

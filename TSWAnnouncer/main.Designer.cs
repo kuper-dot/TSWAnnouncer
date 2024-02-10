@@ -39,6 +39,7 @@
             this.ButStart = new System.Windows.Forms.Button();
             this.LblFrom = new System.Windows.Forms.Label();
             this.LblTo = new System.Windows.Forms.Label();
+            this.TestLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +106,7 @@
             // ButStart
             // 
             this.ButStart.Enabled = false;
-            this.ButStart.Location = new System.Drawing.Point(12, 207);
+            this.ButStart.Location = new System.Drawing.Point(12, 206);
             this.ButStart.Name = "ButStart";
             this.ButStart.Size = new System.Drawing.Size(75, 23);
             this.ButStart.TabIndex = 9;
@@ -116,7 +117,7 @@
             // LblFrom
             // 
             this.LblFrom.AutoSize = true;
-            this.LblFrom.Location = new System.Drawing.Point(105, 210);
+            this.LblFrom.Location = new System.Drawing.Point(94, 210);
             this.LblFrom.Name = "LblFrom";
             this.LblFrom.Size = new System.Drawing.Size(0, 15);
             this.LblFrom.TabIndex = 10;
@@ -130,12 +131,22 @@
             this.LblTo.TabIndex = 11;
             this.LblTo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // TestLbl
+            // 
+            this.TestLbl.AutoSize = true;
+            this.TestLbl.Location = new System.Drawing.Point(430, 289);
+            this.TestLbl.Name = "TestLbl";
+            this.TestLbl.Size = new System.Drawing.Size(38, 15);
+            this.TestLbl.TabIndex = 12;
+            this.TestLbl.Text = "label1";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(723, 320);
+            this.Controls.Add(this.TestLbl);
             this.Controls.Add(this.LblTo);
             this.Controls.Add(this.LblFrom);
             this.Controls.Add(this.ButStart);
@@ -164,5 +175,6 @@
         private Button ButStart;
         private Label LblFrom;
         private Label LblTo;
+        public Label TestLbl;
     }
 }
