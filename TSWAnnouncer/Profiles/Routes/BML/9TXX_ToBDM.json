@@ -1,0 +1,380 @@
+{
+  "info": {
+    "name": "9TXX Brighton to Bedford Thameslink",
+    "type": "route"
+  },
+  "initdata": {
+    "firstop": "BTN",
+    "lasstop": "BDM"
+  },
+  "skip": {
+    "dep": "true",
+    "arr": "false",
+    "at": "false"
+  },
+  "statlist": [
+    {
+      "name": "BTN",
+      "atseq": [
+        {
+          "name": "!welcome"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "low&BDM"
+        },
+        {
+          "name": "#calling"
+        },
+        {
+          "name": "!safe"
+        }
+      ]
+    },
+    {
+      "name": "PRP",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "!ns"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "low&BTN"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "!finalstop"
+        }
+      ]
+    },
+    {
+      "name": "HSK",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "BUG",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "WVF",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "HHE",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "BAB",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "TBD",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "GTW",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!belong"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "ECR",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail and tramlink services alight.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "LBG"
+    },
+    {
+      "name": "BFR"
+    },
+    {
+      "name": "ZFD"
+    },
+    {
+      "name": "STP"
+    },
+    {
+      "name": "WHP"
+    },
+    {
+      "name": "SAC"
+    },
+    {
+      "name": "HPD"
+    },
+    {
+      "name": "LTN"
+    },
+    {
+      "name": "LUT"
+    },
+    {
+      "name": "LEA"
+    },
+    {
+      "name": "HLN"
+    },
+    {
+      "name": "FLT"
+    },
+    {
+      "name": "BDM"
+    }
+  ]
+}

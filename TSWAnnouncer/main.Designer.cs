@@ -28,136 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.LblAppName = new System.Windows.Forms.Label();
-            this.filesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ButSelJSONPack = new System.Windows.Forms.Button();
-            this.LblSoundPckName = new System.Windows.Forms.Label();
-            this.LblSelRoute = new System.Windows.Forms.Label();
-            this.ButSelJSONRoute = new System.Windows.Forms.Button();
-            this.ButStart = new System.Windows.Forms.Button();
-            this.LblFrom = new System.Windows.Forms.Label();
-            this.LblTo = new System.Windows.Forms.Label();
-            this.TestLbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
+            this.LblCurRoute = new System.Windows.Forms.Label();
+            this.LblCurStat = new System.Windows.Forms.Label();
+            this.LblCurAnon = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.BtnPlay = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // LblAppName
+            // LblCurRoute
             // 
-            this.LblAppName.AutoSize = true;
-            this.LblAppName.BackColor = System.Drawing.Color.Transparent;
-            this.LblAppName.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblAppName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.LblAppName.Location = new System.Drawing.Point(12, 9);
-            this.LblAppName.Name = "LblAppName";
-            this.LblAppName.Size = new System.Drawing.Size(710, 40);
-            this.LblAppName.TabIndex = 0;
-            this.LblAppName.Text = "Welcome to the Announcment Generator";
+            this.LblCurRoute.AutoSize = true;
+            this.LblCurRoute.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblCurRoute.Location = new System.Drawing.Point(12, 9);
+            this.LblCurRoute.Name = "LblCurRoute";
+            this.LblCurRoute.Size = new System.Drawing.Size(152, 25);
+            this.LblCurRoute.TabIndex = 0;
+            this.LblCurRoute.Text = "Current route: ";
             // 
-            // filesBindingSource
+            // LblCurStat
             // 
-            this.filesBindingSource.DataSource = typeof(TSWAnnouncer.files);
+            this.LblCurStat.AutoSize = true;
+            this.LblCurStat.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblCurStat.Location = new System.Drawing.Point(12, 34);
+            this.LblCurStat.Name = "LblCurStat";
+            this.LblCurStat.Size = new System.Drawing.Size(215, 25);
+            this.LblCurStat.TabIndex = 1;
+            this.LblCurStat.Text = "Current/next station: ";
             // 
-            // openFileDialog1
+            // LblCurAnon
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.LblCurAnon.AutoSize = true;
+            this.LblCurAnon.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblCurAnon.Location = new System.Drawing.Point(12, 59);
+            this.LblCurAnon.Name = "LblCurAnon";
+            this.LblCurAnon.Size = new System.Drawing.Size(206, 25);
+            this.LblCurAnon.TabIndex = 2;
+            this.LblCurAnon.Text = "Next announcement:";
             // 
-            // ButSelJSONPack
+            // button1
             // 
-            this.ButSelJSONPack.Location = new System.Drawing.Point(12, 100);
-            this.ButSelJSONPack.Name = "ButSelJSONPack";
-            this.ButSelJSONPack.Size = new System.Drawing.Size(199, 23);
-            this.ButSelJSONPack.TabIndex = 5;
-            this.ButSelJSONPack.Text = "Sellect pack file";
-            this.ButSelJSONPack.UseVisualStyleBackColor = true;
-            this.ButSelJSONPack.Click += new System.EventHandler(this.button3_Click);
+            this.button1.Location = new System.Drawing.Point(12, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Previous record";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // LblSoundPckName
+            // button2
             // 
-            this.LblSoundPckName.AutoSize = true;
-            this.LblSoundPckName.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSoundPckName.Location = new System.Drawing.Point(217, 100);
-            this.LblSoundPckName.Name = "LblSoundPckName";
-            this.LblSoundPckName.Size = new System.Drawing.Size(186, 21);
-            this.LblSoundPckName.TabIndex = 6;
-            this.LblSoundPckName.Text = "Select TOC sound pack";
+            this.button2.Location = new System.Drawing.Point(116, 103);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Next record";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // LblSelRoute
+            // BtnPlay
             // 
-            this.LblSelRoute.AutoSize = true;
-            this.LblSelRoute.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSelRoute.Location = new System.Drawing.Point(217, 147);
-            this.LblSelRoute.Name = "LblSelRoute";
-            this.LblSelRoute.Size = new System.Drawing.Size(192, 21);
-            this.LblSelRoute.TabIndex = 8;
-            this.LblSelRoute.Text = "Select your route preset";
+            this.BtnPlay.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnPlay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnPlay.Location = new System.Drawing.Point(12, 142);
+            this.BtnPlay.Name = "BtnPlay";
+            this.BtnPlay.Size = new System.Drawing.Size(188, 23);
+            this.BtnPlay.TabIndex = 5;
+            this.BtnPlay.Text = "Play next record";
+            this.BtnPlay.UseVisualStyleBackColor = false;
+            this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
             // 
-            // ButSelJSONRoute
+            // button4
             // 
-            this.ButSelJSONRoute.Location = new System.Drawing.Point(12, 147);
-            this.ButSelJSONRoute.Name = "ButSelJSONRoute";
-            this.ButSelJSONRoute.Size = new System.Drawing.Size(199, 23);
-            this.ButSelJSONRoute.TabIndex = 7;
-            this.ButSelJSONRoute.Text = "Sellect route file";
-            this.ButSelJSONRoute.UseVisualStyleBackColor = true;
-            this.ButSelJSONRoute.Click += new System.EventHandler(this.ButSelJSONRoute_Click);
-            // 
-            // ButStart
-            // 
-            this.ButStart.Enabled = false;
-            this.ButStart.Location = new System.Drawing.Point(12, 206);
-            this.ButStart.Name = "ButStart";
-            this.ButStart.Size = new System.Drawing.Size(75, 23);
-            this.ButStart.TabIndex = 9;
-            this.ButStart.Text = "Start";
-            this.ButStart.UseVisualStyleBackColor = true;
-            this.ButStart.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // LblFrom
-            // 
-            this.LblFrom.AutoSize = true;
-            this.LblFrom.Location = new System.Drawing.Point(94, 210);
-            this.LblFrom.Name = "LblFrom";
-            this.LblFrom.Size = new System.Drawing.Size(0, 15);
-            this.LblFrom.TabIndex = 10;
-            // 
-            // LblTo
-            // 
-            this.LblTo.AutoSize = true;
-            this.LblTo.Location = new System.Drawing.Point(94, 236);
-            this.LblTo.Name = "LblTo";
-            this.LblTo.Size = new System.Drawing.Size(0, 15);
-            this.LblTo.TabIndex = 11;
-            this.LblTo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TestLbl
-            // 
-            this.TestLbl.AutoSize = true;
-            this.TestLbl.Location = new System.Drawing.Point(430, 289);
-            this.TestLbl.Name = "TestLbl";
-            this.TestLbl.Size = new System.Drawing.Size(38, 15);
-            this.TestLbl.TabIndex = 12;
-            this.TestLbl.Text = "label1";
+            this.button4.BackColor = System.Drawing.Color.LightCoral;
+            this.button4.Location = new System.Drawing.Point(12, 224);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Return to main screen";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(723, 320);
-            this.Controls.Add(this.TestLbl);
-            this.Controls.Add(this.LblTo);
-            this.Controls.Add(this.LblFrom);
-            this.Controls.Add(this.ButStart);
-            this.Controls.Add(this.LblSelRoute);
-            this.Controls.Add(this.ButSelJSONRoute);
-            this.Controls.Add(this.LblSoundPckName);
-            this.Controls.Add(this.ButSelJSONPack);
-            this.Controls.Add(this.LblAppName);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.BtnPlay);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LblCurAnon);
+            this.Controls.Add(this.LblCurStat);
+            this.Controls.Add(this.LblCurRoute);
             this.Name = "main";
-            this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
+            this.Text = "main";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,16 +128,12 @@
 
         #endregion
 
-        private Label LblAppName;
-        private BindingSource filesBindingSource;
-        private OpenFileDialog openFileDialog1;
-        private Button ButSelJSONPack;
-        private Label LblSoundPckName;
-        private Label LblSelRoute;
-        private Button ButSelJSONRoute;
-        private Button ButStart;
-        private Label LblFrom;
-        private Label LblTo;
-        public Label TestLbl;
+        private Label LblCurRoute;
+        private Label LblCurStat;
+        private Label LblCurAnon;
+        private Button button1;
+        private Button button2;
+        private Button BtnPlay;
+        private Button button4;
     }
 }

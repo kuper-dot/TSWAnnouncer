@@ -1,102 +1,70 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace TSWAnnouncer
 {
     public partial class main : Form
     {
-        public string SelSoundPck;
-        public string SelRoute;
-        //public static string jsonprofile = File.ReadAllText(files.GetPathRoot(@"Profiles\Packs\TL.json"));
-        //private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        // this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-        public main() => InitializeComponent();
-
-        private void button3_Click(object sender, EventArgs e) //Select pack JSON file button
+        const int mActionHotKeyID = 1;
+        public string path;
+        public string route;
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        public main(string path, string route)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            RegisterHotKey(this.Handle, mActionHotKeyID, 0, (int)Keys.F7);
+            this.path = path;
+            this.route = route;
+            InitializeComponent();
+            var routeName = files.JSpa(route, "$.info.name");
+            LblCurRoute.Text = "Current Route: " + routeName;
+            string statName = files.JSpa(route, "$.statlist[0].name");
+            LblCurStat.Text = "Next stop: " + statName;
+        }
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyID)
             {
-                InitialDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                Title = "Select TOC soundpack file",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "json",
-                Filter = "JSON Files (*.json)|*.json",
-                FilterIndex = 2,
-                RestoreDirectory = true,
-
-                ReadOnlyChecked = false,
-                ShowReadOnly = false
-            };
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                SelSoundPck = openFileDialog1.FileName;
-                LblSoundPckName.Text = "Sound pack name is: " + files.JSpa(SelSoundPck, "$.info.name");
+                callForPlayback();
             }
+            base.WndProc(ref m);
+        }
 
-            if (SelSoundPck != null && SelRoute != null)
+        private void callForPlayback()
+        {
+            var retrn = playback.play(route, path);
+            int curStat = Convert.ToInt32($"{retrn.Item1}");
+            string statName = files.JSpa(route, "$.statlist[" + curStat + "].name");
+            LblCurStat.Text = "Next stop: " + statName;
+
+            int annon = Convert.ToInt32($"{retrn.Item1}");
+            if (annon == 0)
             {
-                ButStart.Enabled = true;
+                LblCurAnon.Text = "Next announcement: Departing from " + statName;
+            }
+            else if (annon == 1)
+            {
+                LblCurAnon.Text = "Next announcement: Arriving to " + statName;
+            }
+            else if (annon == 2)
+            {
+                LblCurAnon.Text = "Next announcement: We are now at " + statName;
             }
         }
 
-        private void ButSelJSONRoute_Click(object sender, EventArgs e)
+        private void BtnPlay_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
-            {
-                InitialDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                Title = "Select route config file",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "json",
-                Filter = "JSON Files (*.json)|*.json",
-                FilterIndex = 2,
-                RestoreDirectory = true,
-
-                ReadOnlyChecked = false,
-                ShowReadOnly = false
-            };
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                SelRoute = openFileDialog1.FileName;
-                LblSelRoute.Text = "Route pack name: " + files.JSpa(SelRoute, "$.info.name");
-                LblFrom.Text = "Starting from: " + files.JSpa(SelRoute, "$.initdata.firstop");
-                LblTo.Text = "Terminating at: " + files.JSpa(SelRoute, "$.initdata.lasstop");
-            }
-
-            if (SelSoundPck != null && SelRoute != null)
-            {
-                ButStart.Enabled = true;
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e) //Start Button
-        {
-            playback.play(SelRoute, SelSoundPck);
-        }
-    }
-
-    public class mainFormUpdates
-    {
-        public void updateText(TextBox target, string s)
-        {
-            target.Text = s;
+            callForPlayback();
         }
     }
 }

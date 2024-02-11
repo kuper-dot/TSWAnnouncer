@@ -1,0 +1,199 @@
+{
+  "info": {
+    "name": "9SXX Cambridge to Brighton ThamesLink",
+    "type": "route"
+  },
+  "initdata": {
+    "firstop": "ECR",
+    "lasstop": "BTN"
+  },
+  "skip": {
+    "dep": "true",
+    "arr": "false",
+    "at": "false"
+  },
+  "statlist": [
+    {
+      "name": "GTW",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!belong"
+        },
+        {
+          "name": "!oyster"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "TBD",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "HHE",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "BUG",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "!ns"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "low&BTN"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "!finalstop"
+        }
+      ]
+    },
+    {
+      "name": "BTN",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services alight here for services to eastbourne hastings and.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "!finalstoplong"
+        }
+      ]
+    }
+  ]
+}

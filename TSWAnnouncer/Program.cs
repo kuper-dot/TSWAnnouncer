@@ -18,7 +18,7 @@ namespace TSWAnnouncer
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new main());
+            Application.Run(new start());
         }
     }
     public class files
@@ -125,7 +125,7 @@ namespace TSWAnnouncer
             }
         }
 
-        public static void play(string rt, string pck)
+        public static (int, int) play(string rt, string pck)
         {
             route = rt;
             pack = pck;
@@ -148,6 +148,7 @@ namespace TSWAnnouncer
                 if (skip == "true") { Dep(); }
                 else { atStat(); }
             }
+            return (Convert.ToInt32(lasAnnon), Convert.ToInt32(curStop) - 1);
         }
         public static void Appr()
         {
@@ -159,6 +160,7 @@ namespace TSWAnnouncer
             if (sequenceCount == 0)
             {
                 lasAnnon = 1;
+                atStat();
                 return;
             }
             while (curSequence != sequenceCount)
@@ -233,6 +235,7 @@ namespace TSWAnnouncer
             {
                 lasAnnon = 2;
                 curStop++;
+                Dep();
                 return;
             }
             while (curSequence != sequenceCount)
@@ -274,6 +277,7 @@ namespace TSWAnnouncer
                                 }
                             }
                         }
+                       
                         else //Conplete two other ! func
                         {
                             var temp = files.JSpa(pack, "$.main.atStat." + audioName);
@@ -334,6 +338,7 @@ namespace TSWAnnouncer
             if (sequenceCount == 0)
             {
                 lasAnnon = 0;
+                Appr();
                 return;
             }
             while (curSequence != sequenceCount)

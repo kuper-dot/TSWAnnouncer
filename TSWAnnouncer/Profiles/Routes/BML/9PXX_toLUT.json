@@ -1,0 +1,462 @@
+{
+  "info": {
+    "name": "9PXX Rainham to Luton Thameslink",
+    "type": "route"
+  },
+  "initdata": {
+    "firstop": "RAI",
+    "lasstop": "LUT"
+  },
+  "skip": {
+    "dep": "true",
+    "arr": "false",
+    "at": "false"
+  },
+  "statlist": [
+    {
+      "name": "BTN",
+      "atseq": [
+        {
+          "name": "!welcome"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "low&LUT"
+        },
+        {
+          "name": "#calling"
+        },
+        {
+          "name": "!safe"
+        }
+      ]
+    },
+    {
+      "name": "GLM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "CTM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "RTR",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "SOO",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "HGM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "GRV",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "NFL",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "SWM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "GNH",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "SCG",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "DFD",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "SGR"
+    },
+    {
+      "name": "ABW"
+    },
+    {
+      "name": "PLU"
+    },
+    {
+      "name": "WWA"
+    },
+    {
+      "name": "CTN"
+    },
+    {
+      "name": "WCB"
+    },
+    {
+      "name": "MZH"
+    },
+    {
+      "name": "GNW"
+    },
+    {
+      "name": "DEP"
+    },
+    {
+      "name": "LBG"
+    },
+    {
+      "name": "BFR"
+    },
+    {
+      "name": "CTK"
+    },
+    {
+      "name": "ZFD"
+    },
+    {
+      "name": "STP"
+    },
+    {
+      "name": "KTN"
+    },
+    {
+      "name": "WHP"
+    },
+    {
+      "name": "CRI"
+    },
+    {
+      "name": "HEN"
+    },
+    {
+      "name": "MIL"
+    },
+    {
+      "name": "ELS"
+    },
+    {
+      "name": "RDT"
+    },
+    {
+      "name": "SAC"
+    },
+    {
+      "name": "HPD"
+    },
+    {
+      "name": "LTN"
+    },
+    {
+      "name": "LUT"
+    }
+  ]
+}

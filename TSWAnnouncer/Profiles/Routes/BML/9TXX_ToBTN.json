@@ -1,10 +1,10 @@
 {
   "info": {
-    "name": "9SXX Cambridge to Brighton ThamesLink",
+    "name": "9TXX Bedford to Brighton ThamesLink",
     "type": "route"
   },
   "initdata": {
-    "firstop": "ECR",
+    "firstop": "BDM",
     "lasstop": "BTN"
   },
   "skip": {
@@ -88,6 +88,37 @@
       ]
     },
     {
+      "name": "BAB",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
       "name": "HHE",
       "arrseq": [
         {
@@ -122,13 +153,104 @@
       ]
     },
     {
+      "name": "WVF",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
       "name": "BUG",
       "arrseq": [
         {
           "name": "#shortly"
         },
         {
-          "name": "TL\\change\\other national rail services.mp3"
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "HSK",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "PRP",
+      "arrseq": [
+        {
+          "name": "#shortly"
         },
         {
           "name": "!autodoors"
@@ -186,6 +308,9 @@
         },
         {
           "name": "#thisis"
+        },
+        {
+          "name": "@0"
         },
         {
           "name": "!finalstoplong"

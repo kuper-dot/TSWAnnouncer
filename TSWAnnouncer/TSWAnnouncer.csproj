@@ -13,7 +13,12 @@
     <None Remove="Audio\GTW.mp3" />
     <None Remove="Audio\welcome.mp3" />
     <None Remove="Profiles\Packs\TL.json" />
-    <None Remove="Profiles\Routes\BML\9SXX.json" />
+    <None Remove="Profiles\Routes\BML\9PXX_toLUT.json" />
+    <None Remove="Profiles\Routes\BML\9PXX_toRAI.json" />
+    <None Remove="Profiles\Routes\BML\9SXX_ToBTN.json" />
+    <None Remove="Profiles\Routes\BML\9SXX_toCMB.json" />
+    <None Remove="Profiles\Routes\BML\9TXX_ToBDM.json" />
+    <None Remove="Profiles\Routes\BML\9TXX_ToBTN.json" />
     <None Remove="TRTS.wav" />
   </ItemGroup>
 
@@ -33,8 +38,23 @@
     <Content Include="Profiles\Packs\TL.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Profiles\Routes\BML\9SXX.json">
+    <Content Include="Profiles\Routes\BML\9PXX_toLUT.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiles\Routes\BML\9PXX_toRAI.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiles\Routes\BML\9SXX_ToBTN.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiles\Routes\BML\9SXX_toCMB.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiles\Routes\BML\9TXX_ToBDM.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiles\Routes\BML\9TXX_ToBTN.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

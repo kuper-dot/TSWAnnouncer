@@ -27,16 +27,18 @@
     },
 
     "atStat": {
+      "welcome": "TL\\main\\welcome aboard this service to.mp3",
       "ns": "TL\\main\\the next station is.mp3",
       "finalstop": "TL\\main\\our final destination.mp3",
-      "finalstoplong": "our final destination thank you for travelling with us please remember to take all your personal belongings with you when you leave the train.mp3",
+      "finalstoplong": "TL\\main\\our final destination thank you for travelling with us please remember to take all your personal belongings with you when you leave the train.mp3",
       "thisStat": "TL\\main\\this station is.mp3",
       "allchange": "TL\\main\\this train terminates here all change.mp3",
       "thankyou": "TL\\main\\thank you for travelling with us today.mp3",
       "trainfor": "TL\\main\\this train is for.mp3",
       "trainterm": "TL\\main\\this train terminates at.mp3",
       "calling": "TL\\main\\we will be calling at.mp3",
-      "gap": "TL\\main\\please mind the gap between the train and the platform.mp3"
+      "gap": "TL\\main\\please mind the gap between the train and the platform.mp3",
+      "safe": "TL\\main\\safety information is provided on posters in every carriage.mp3"
     }
   },
   "conf": {
