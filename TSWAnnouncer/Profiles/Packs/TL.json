@@ -19,7 +19,7 @@
     "appr": {
       "shortly": "TL\\main\\we will shortly be arriving at.mp3",
       "appr": "TL\\main\\we are now approaching.mp3",
-      "finalstop": "TL\\main\\our final destination.mp3",
+      "finalstop": "our final destination thank you for travelling with us please remember to take all your personal belongings with you when you leave the train.mp3",
       "autodoors": "TL\\main\\the doors will open automatically at the next station.mp3",
       "change": "TL\\main\\change here for.mp3",
       "oyster": "TL\\main\\oyster and contactless payments may only be used on certain routes and at specific stations.mp3",
@@ -27,6 +27,9 @@
     },
 
     "atStat": {
+      "ns": "TL\\main\\the next station is.mp3",
+      "finalstop": "TL\\main\\our final destination.mp3",
+      "finalstoplong": "our final destination thank you for travelling with us please remember to take all your personal belongings with you when you leave the train.mp3",
       "thisStat": "TL\\main\\this station is.mp3",
       "allchange": "TL\\main\\this train terminates here all change.mp3",
       "thankyou": "TL\\main\\thank you for travelling with us today.mp3",

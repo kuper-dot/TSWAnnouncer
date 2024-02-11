@@ -7,10 +7,12 @@
     "firstop": "ECR",
     "lasstop": "BTN"
   },
+  "skip": {
+    "dep": "true",
+    "arr": "false",
+    "at": "false"
+  },
   "statlist": [
-    {
-      "name": "ECR"
-    },
     {
       "name": "GTW",
       "arrseq": [
@@ -35,6 +37,9 @@
           "name": "!gap"
         },
         {
+          "name": "@0"
+        },
+        {
           "name": "#thisis"
         },
         {
@@ -46,8 +51,7 @@
         {
           "name": "#calling"
         }
-      ],
-      "depseq": []
+      ]
     },
     {
       "name": "TBD",
@@ -60,6 +64,26 @@
         },
         {
           "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
         }
       ]
     },
@@ -75,6 +99,26 @@
         {
           "name": "!autodoors"
         }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
       ]
     },
     {
@@ -89,6 +133,35 @@
         {
           "name": "!autodoors"
         }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "!ns"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "low&BTN"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "!finalstop"
+        }
       ]
     },
     {
@@ -102,6 +175,20 @@
         },
         {
           "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "!finalstoplong"
         }
       ]
     }

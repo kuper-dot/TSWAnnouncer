@@ -50,16 +50,6 @@ namespace TSWAnnouncer
             var count = token.SelectTokens(path).Count();
             return count;
         }
-        public static bool IsDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                    return false;
-            }
-
-            return true;
-        }
     }
 
     public class playback
@@ -96,7 +86,10 @@ namespace TSWAnnouncer
                 //Createing a one audio file out of many
                 outputDevice.Init(playlist);
                 outputDevice.Play();// And then playing it.
-                while (outputDevice.PlaybackState != PlaybackState.Stopped) ;
+                while (outputDevice.PlaybackState != PlaybackState.Stopped)
+                {
+                    Thread.Sleep(25);
+                }
                 outputDevice.Dispose();
                 outputDevice = null;
                 if (audioFile != null)
@@ -139,15 +132,21 @@ namespace TSWAnnouncer
             playback.StatCheck(route);
             if (lasAnnon == 2)
             {
-                Dep();
+                var skip = files.JSpa(route, "$.skip.dep");
+                if (skip == "true") { Appr(); }
+                else { Dep(); }
             }
             else if (lasAnnon == 0)
             {
-                Appr();
+                var skip = files.JSpa(route, "$.skip.arr");
+                if (skip == "true") { atStat(); }
+                else { Appr(); }
             }
             else if (lasAnnon == 1)
             {
-                atStat();
+                var skip = files.JSpa(route, "$.skip.at");
+                if (skip == "true") { Dep(); }
+                else { atStat(); }
             }
         }
         public static void Appr()
@@ -205,34 +204,23 @@ namespace TSWAnnouncer
                     new playback().AddQueue(fileName);
                     new playback().playQueue();
                 }
-                else if (sequenceStr.Contains("@"))
+                if (curSequence + 1 < sequenceCount)
                 {
-                    sequenceStr = sequenceStr.Remove(0, 1);
-                    sleep = Convert.ToInt32(sequenceStr) * 1000;
+                    int nxtSequence = curSequence + 1;
+                    string nextSqeStr = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + nxtSequence + "].name");
+                    if (nextSqeStr.Contains("@"))
+                    {
+                        nextSqeStr = nextSqeStr.Remove(0, 1);
+                        sleep = Convert.ToInt32(nextSqeStr) * 1000;
+                        curSequence++;
+                    }
                 }
-                curSequence++;
                 Thread.Sleep(sleep);
+                curSequence++;
             }
             lasAnnon = 1;
         }
 
-        public static void Dep()
-        {
-            int curSequence = 0;
-            var packFolder = files.JSpa(pack, "$.info.foldername");
-
-            //System.Windows.Forms.MessageBox.Show(Convert.ToString(curStop));
-            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].depseq[*]");
-            if (sequenceCount == 0)
-            {
-                lasAnnon = 0;
-                return;
-            }
-            while (curSequence != sequenceCount)
-            {
-               // string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + curSequence + "].name");
-            }
-        }
 
         public static void atStat()
         {
@@ -265,6 +253,26 @@ namespace TSWAnnouncer
                                 var statName = files.JSpa(route, "$.statlist[" + curStop + "].name");
                                 new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
                             }
+                            else if (audioName == "!lasstop")
+                            {
+                                var statName = files.JSpa(route, "$.initdata.lasstop");
+                                new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
+                            }
+                            else if (audioName == "!calling")
+                            {
+                                for(int seq = Convert.ToInt32(curStop) + 1; seq != lasStop; seq++)
+                                {
+                                    var statName = files.JSpa(route, "$.statlist[" + seq + "].name");
+                                    if (seq == lasStop - 1)
+                                    {
+                                        var temp = files.JSpa(pack, "$.main.misc.and");
+                                        new playback().AddQueue(temp);
+                                        new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
+                                    }
+                                    else { new playback().AddQueue(packFolder + "\\stations\\high\\" + statName + ".mp3"); }
+                                   
+                                }
+                            }
                         }
                         else //Conplete two other ! func
                         {
@@ -290,16 +298,48 @@ namespace TSWAnnouncer
                     new playback().AddQueue(fileName);
                     new playback().playQueue();
                 }
-                else if (sequenceStr.Contains("@"))
+                else if (sequenceStr.Contains("&"))
                 {
-                    sequenceStr = sequenceStr.Remove(0, 1);
-                    sleep = Convert.ToInt32(sequenceStr) * 1000;
+                    if (sequenceStr.Contains("low"))
+                    {
+                        sequenceStr = sequenceStr.Substring(sequenceStr.IndexOf('&') + 1);
+                        new playback().AddQueue(packFolder + "\\stations\\low\\" + sequenceStr + ".mp3");
+                        new playback().playQueue();
+                    }
                 }
-                curSequence++;
+                if (curSequence + 1 < sequenceCount)
+                {
+                    int nxtSequence = curSequence + 1;
+                    string nextSqeStr = files.JSpa(route, "$.statlist[" + curStop + "].atseq[" + nxtSequence + "].name");
+                    if (nextSqeStr.Contains("@"))
+                    {
+                        nextSqeStr = nextSqeStr.Remove(0, 1);
+                        sleep = Convert.ToInt32(nextSqeStr) * 1000;
+                        curSequence++;
+                    }
+                }
                 Thread.Sleep(sleep);
+                curSequence++;
             }
             lasAnnon = 2;
             curStop++;
+        }
+        public static void Dep()
+        {
+            int curSequence = 0;
+            var packFolder = files.JSpa(pack, "$.info.foldername");
+
+            //System.Windows.Forms.MessageBox.Show(Convert.ToString(curStop));
+            var sequenceCount = files.JSpaCountArr(route, "$.statlist[" + curStop + "].depseq[*]");
+            if (sequenceCount == 0)
+            {
+                lasAnnon = 0;
+                return;
+            }
+            while (curSequence != sequenceCount)
+            {
+                // string sequenceStr = files.JSpa(route, "$.statlist[" + curStop + "].arrseq[" + curSequence + "].name");
+            }
         }
     }
 }
