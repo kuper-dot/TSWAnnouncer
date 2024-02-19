@@ -4,13 +4,13 @@
     "foldername": "TL",
     "type": "pack"
   },
-  "main": {
+  "sounds": {
     "misc": {
       "and": "TL\\main\\and.mp3",
       "only": "TL\\main\\only.mp3"
     },
 
-    "initial": {
+    "dep": {
       "welcome": "TL\\main\\welcome aboard this service to.mp3",
       "calling": "TL\\main\\we will be calling at.mp3",
       "ns": "TL\\main\\the next station is.mp3"
@@ -41,6 +41,19 @@
       "safe": "TL\\main\\safety information is provided on posters in every carriage.mp3"
     }
   },
+  "preconf": {
+    "dep": [
+      {
+        "name": "welcome"
+      },
+      {
+        "name": "low&!lasstop"
+      },
+      {
+
+      }
+    ]
+  }
   "conf": {
     "appr": {
       "#shortly": [
@@ -90,9 +103,5 @@
       ]
     }
   }
-}
-
-
-
- 
+} 
 
