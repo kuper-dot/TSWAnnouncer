@@ -14,55 +14,19 @@
   },
   "statlist": [
     {
-      "name": "BTN",
-      "atseq": [
-        {
-          "name": "!welcome"
-        },
-        {
-          "name": "@0"
-        },
-        {
-          "name": "low&LUT"
-        },
-        {
-          "name": "#calling"
-        },
-        {
-          "name": "!safe"
-        }
-      ]
+      "name": "RAI",
+      "dep": {
+        "premade": "dep"
+      }
     },
     {
       "name": "GLM",
-      "arrseq": [
-        {
-          "name": "#shortly"
-        },
-        {
-          "name": "!autodoors"
-        }
-      ],
-      "atseq": [
-        {
-          "name": "!gap"
-        },
-        {
-          "name": "@0"
-        },
-        {
-          "name": "#thisis"
-        },
-        {
-          "name": "@5"
-        },
-        {
-          "name": "#lasstop"
-        },
-        {
-          "name": "#calling"
-        }
-      ]
+      "arr": {
+        "premade": "arr"
+      },
+      "atstat": {
+        ""
+      }
     },
     {
       "name": "CTM",

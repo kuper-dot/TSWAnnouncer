@@ -50,10 +50,62 @@
         "name": "low&!lasstop"
       },
       {
-
+        "name": "@1"
+      },
+      {
+        "name": "calling"
+      },
+      {
+        "name": "!calling"
+      },
+      {
+        "name": "@1"
+      },
+      {
+        "name": "safe"
+      }
+    ],
+    "arr": [
+      {
+        "name": "shortly"
+      },
+      {
+        "name": "!curstat"
+      },
+      {
+        "name": "@1"
+      },
+      {
+        "name": "autodoors"
+      }
+    ],
+    "atstat": [
+      {
+        "name": "gap"
+      },
+      {
+        "name": "thisStat"
+      },
+      {
+        "name": "!curstat"
+      },
+      {
+        "name": "@5"
+      },
+      {
+        "name": "trainterm"
+      },
+      {
+        "name": "!lasstop"
+      },
+      {
+        "name": "calling"
+      },
+      {
+        "name": "!calling"
       }
     ]
-  }
+  },
   "conf": {
     "appr": {
       "#shortly": [
