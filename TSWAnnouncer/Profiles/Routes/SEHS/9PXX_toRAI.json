@@ -1,11 +1,11 @@
 {
   "info": {
-    "name": "9PXX Rainham to Luton Thameslink",
+    "name": "9PXX Luton to Rainham Thameslink",
     "type": "route"
   },
   "initdata": {
-    "firstop": "RAI",
-    "lasstop": "LUT"
+    "firstop": "LUT",
+    "lasstop": "RAI"
   },
   "skip": {
     "dep": "true",
@@ -14,26 +14,7 @@
   },
   "statlist": [
     {
-      "name": "RAI",
-      "seq": [
-        {
-          "premade": "dep"
-        }
-      ]
-    },
-    {
-      "name": "GLM",
-      "seq": [
-        {
-          "premade": "arr"
-        },
-        {
-          "premade": "atstat"
-        }
-      ]
-    },
-    {
-      "name": "CTM",
+      "name": "SCG",
       "arrseq": [
         {
           "name": "#shortly"
@@ -64,41 +45,7 @@
       ]
     },
     {
-      "name": "RTR",
-      "arrseq": [
-        {
-          "name": "#shortly"
-        },
-        {
-          "name": "TL\\change\\other national rail services.mp3"
-        },
-        {
-          "name": "!autodoors"
-        }
-      ],
-      "atseq": [
-        {
-          "name": "!gap"
-        },
-        {
-          "name": "@0"
-        },
-        {
-          "name": "#thisis"
-        },
-        {
-          "name": "@5"
-        },
-        {
-          "name": "#lasstop"
-        },
-        {
-          "name": "#calling"
-        }
-      ]
-    },
-    {
-      "name": "SOO",
+      "name": "GNH",
       "arrseq": [
         {
           "name": "#shortly"
@@ -129,7 +76,38 @@
       ]
     },
     {
-      "name": "HGM",
+      "name": "SWM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
+    },
+    {
+      "name": "NFL",
       "arrseq": [
         {
           "name": "#shortly"
@@ -194,7 +172,7 @@
       ]
     },
     {
-      "name": "NFL",
+      "name": "HGM",
       "arrseq": [
         {
           "name": "#shortly"
@@ -225,100 +203,7 @@
       ]
     },
     {
-      "name": "SWM",
-      "arrseq": [
-        {
-          "name": "#shortly"
-        },
-        {
-          "name": "!autodoors"
-        }
-      ],
-      "atseq": [
-        {
-          "name": "!gap"
-        },
-        {
-          "name": "@0"
-        },
-        {
-          "name": "#thisis"
-        },
-        {
-          "name": "@5"
-        },
-        {
-          "name": "#lasstop"
-        },
-        {
-          "name": "#calling"
-        }
-      ]
-    },
-    {
-      "name": "GNH",
-      "arrseq": [
-        {
-          "name": "#shortly"
-        },
-        {
-          "name": "!autodoors"
-        }
-      ],
-      "atseq": [
-        {
-          "name": "!gap"
-        },
-        {
-          "name": "@0"
-        },
-        {
-          "name": "#thisis"
-        },
-        {
-          "name": "@5"
-        },
-        {
-          "name": "#lasstop"
-        },
-        {
-          "name": "#calling"
-        }
-      ]
-    },
-    {
-      "name": "SCG",
-      "arrseq": [
-        {
-          "name": "#shortly"
-        },
-        {
-          "name": "!autodoors"
-        }
-      ],
-      "atseq": [
-        {
-          "name": "!gap"
-        },
-        {
-          "name": "@0"
-        },
-        {
-          "name": "#thisis"
-        },
-        {
-          "name": "@5"
-        },
-        {
-          "name": "#lasstop"
-        },
-        {
-          "name": "#calling"
-        }
-      ]
-    },
-    {
-      "name": "DFD",
+      "name": "SOO",
       "arrseq": [
         {
           "name": "#shortly"
@@ -352,79 +237,128 @@
       ]
     },
     {
-      "name": "SGR"
+      "name": "RTR",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "TL\\change\\other national rail services.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
     },
     {
-      "name": "ABW"
+      "name": "CTM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
+        }
+      ]
     },
     {
-      "name": "PLU"
+      "name": "GLM",
+      "arrseq": [
+        {
+          "name": "#shortly"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstopns"
+        }
+      ]
     },
     {
-      "name": "WWA"
-    },
-    {
-      "name": "CTN"
-    },
-    {
-      "name": "WCB"
-    },
-    {
-      "name": "MZH"
-    },
-    {
-      "name": "GNW"
-    },
-    {
-      "name": "DEP"
-    },
-    {
-      "name": "LBG"
-    },
-    {
-      "name": "BFR"
-    },
-    {
-      "name": "CTK"
-    },
-    {
-      "name": "ZFD"
-    },
-    {
-      "name": "STP"
-    },
-    {
-      "name": "KTN"
-    },
-    {
-      "name": "WHP"
-    },
-    {
-      "name": "CRI"
-    },
-    {
-      "name": "HEN"
-    },
-    {
-      "name": "MIL"
-    },
-    {
-      "name": "ELS"
-    },
-    {
-      "name": "RDT"
-    },
-    {
-      "name": "SAC"
-    },
-    {
-      "name": "HPD"
-    },
-    {
-      "name": "LTN"
-    },
-    {
-      "name": "LUT"
+      "name": "RAI",
+      "arrseq": [
+        {
+          "name": "#shortlyfinal"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "TL\\change\\other national rail services alight here for services via dover and ramsgate.mp3"
+        },
+        {
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "!finalstoplong"
+        }
+      ]
     }
   ]
-}
+} 

@@ -15,20 +15,52 @@
   "statlist": [
     {
       "name": "RAI",
-      "seq": [
+      "atseq": [
         {
-          "premade": "dep"
+          "name": "!welcome"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "low&LUT"
+        },
+        {
+          "name": "#calling"
+        },
+        {
+          "name": "!safe"
         }
       ]
     },
     {
       "name": "GLM",
-      "seq": [
+      "arrseq": [
         {
-          "premade": "arr"
+          "name": "#shortly"
         },
         {
-          "premade": "atstat"
+          "name": "!autodoors"
+        }
+      ],
+      "atseq": [
+        {
+          "name": "!gap"
+        },
+        {
+          "name": "@0"
+        },
+        {
+          "name": "#thisis"
+        },
+        {
+          "name": "@5"
+        },
+        {
+          "name": "#lasstop"
+        },
+        {
+          "name": "#calling"
         }
       ]
     },

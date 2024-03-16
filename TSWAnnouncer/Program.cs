@@ -44,7 +44,7 @@ namespace TSWAnnouncer
             return Convert.ToString(acme);
         }
 
-        public static int JSpaCountArr(string filename, string path)
+        public static int JSpaCount(string filename, string path)
         {
             var token = JToken.Parse(File.ReadAllText(filename));
             var count = token.SelectTokens(path).Count();
@@ -63,6 +63,7 @@ namespace TSWAnnouncer
         public static int? lasAnnon; //0 - dep 1 - shortly 2-atstat
         public static string route;
         public static string pack;
+        public static int? curAnnon;
 
         public void playQueue()
         {
@@ -72,6 +73,7 @@ namespace TSWAnnouncer
                 List<AudioFileReader> queue = new();
                 foreach (string i in audioqueue)
                 {
+                    MessageBox.Show(i);
                     var audio = new AudioFileReader(i);
                     queue.Add(audio);
                 }
@@ -102,11 +104,11 @@ namespace TSWAnnouncer
             }
         }
 
-        public void AddQueue(string filename) 
+        public void AddQueue(string filename)
         {
             if (audioqueue == null) { List<string> audioqueue = new() { files.GetPathAudio(filename) }; }
             else { audioqueue.Add(files.GetPathAudio(filename)); }
-            
+
         }
 
         public static void StatCheck(string route)
@@ -114,10 +116,11 @@ namespace TSWAnnouncer
             if (curStop == null)
             {
                 curStop = 0;
+                curAnnon = 0;
             }
             if (lasStop == null)
             {
-                lasStop = files.JSpaCountArr(route, "$.statlist[*]");
+                lasStop = files.JSpaCount(route, "$.statlist[*]");
             }
             if (lasAnnon == null)
             {
@@ -125,7 +128,35 @@ namespace TSWAnnouncer
             }
         }
 
-        public static (int, int) play(string rt, string pck)
+        public static int play(string route, string pack)
+        {
+            playback.StatCheck(route);
+            int annonAmount = files.JSpaCount(route, $"$.statlist[{curStop}].seq[*]"); // Count amount of announcment groups for curStop
+            var premadeName = files.JSpa(route, $"$.statlist[{curStop}].seq[{curAnnon}].premade"); // Getting a name of annon groupe for current annon
+            //System.Windows.Forms.MessageBox.Show(premadename);
+            int seqCount = 0;
+            int seqAmount = files.JSpaCount(pack, $"$.preconf.{premadeName}[*]"); //Getting ammount of entries into annon group
+
+            while(seqAmount != seqCount)
+            {
+                MessageBox.Show(files.JSpa(pack, $"$.preconf.{premadeName}[{seqCount}].name"));
+
+                seqCount++;
+            }
+
+            curAnnon++;
+            if (curAnnon == annonAmount + 1)
+            {
+                curStop++;
+                curAnnon = 0;
+            }
+            return 1;
+        }
+    }
+}
+
+
+/*        public static (int, int) play(string rt, string pck)
         {
             route = rt;
             pack = pck;
@@ -347,4 +378,4 @@ namespace TSWAnnouncer
             }
         }
     }
-}
+}*/

@@ -43,11 +43,11 @@ namespace TSWAnnouncer
         private void callForPlayback()
         {
             var retrn = playback.play(route, path);
-            int curStat = Convert.ToInt32($"{retrn.Item1}");
+            int curStat = Convert.ToInt32(retrn);
             string statName = files.JSpa(route, "$.statlist[" + curStat + "].name");
             LblCurStat.Text = "Next stop: " + statName;
 
-            int annon = Convert.ToInt32($"{retrn.Item1}");
+            int annon = Convert.ToInt32(retrn);
             if (annon == 0)
             {
                 LblCurAnon.Text = "Next announcement: Departing from " + statName;
