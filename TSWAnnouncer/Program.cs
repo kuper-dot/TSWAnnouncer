@@ -73,7 +73,6 @@ namespace TSWAnnouncer
                 List<AudioFileReader> queue = new();
                 foreach (string i in audioqueue)
                 {
-                    MessageBox.Show(i);
                     var audio = new AudioFileReader(i);
                     queue.Add(audio);
                 }
@@ -131,6 +130,8 @@ namespace TSWAnnouncer
         public static int play(string route, string pack)
         {
             playback.StatCheck(route);
+            int sleep = 0;
+            var packFolder = files.JSpa(pack, "$.info.foldername");
             int annonAmount = files.JSpaCount(route, $"$.statlist[{curStop}].seq[*]"); // Count amount of announcment groups for curStop
             var premadeName = files.JSpa(route, $"$.statlist[{curStop}].seq[{curAnnon}].premade"); // Getting a name of annon groupe for current annon
             //System.Windows.Forms.MessageBox.Show(premadename);
@@ -139,13 +140,59 @@ namespace TSWAnnouncer
 
             while(seqAmount != seqCount)
             {
-                MessageBox.Show(files.JSpa(pack, $"$.preconf.{premadeName}[{seqCount}].name"));
+                Thread.Sleep(sleep);
+                var annonName = files.JSpa(pack, $"$.preconf.{premadeName}[{seqCount}].name");
+               //MessageBox.Show(annonName);
 
+
+                if (annonName.Contains("!")) // Current annon is dynamic function
+                {
+                    if (annonName == "!curstat")
+                    {
+                        var statName = files.JSpa(route, $"$.statlist[{curStop}].name");
+                        new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
+                    }
+                    else if (annonName == "!lasstop")
+                    {
+                        var statName = files.JSpa(route, "$.initdata.lasstop"); // Change for JSON pharsing fopr last sotop in future!!!
+                        new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
+                    }
+                    else if (annonName == "!calling")
+                    {
+                        for (int seq = Convert.ToInt32(curStop) + 1; seq != lasStop; seq++)
+                        {
+                            var statName = files.JSpa(route, $"$.statlist[{seq}].name");
+                            if (seq == lasStop - 1)
+                            {
+                                var temp = files.JSpa(pack, "$.sounds.and");
+                                new playback().AddQueue(temp);
+                                new playback().AddQueue(packFolder + "\\stations\\low\\" + statName + ".mp3");
+                            }
+                            else { new playback().AddQueue(packFolder + "\\stations\\high\\" + statName + ".mp3"); }
+
+                        }
+                    }
+                }
+
+                else if (annonName.Contains("@"))
+                {
+                    sleep = Convert.ToInt32(annonName.Remove(0, 1)) * 1000;
+                    seqCount++;
+                    continue;
+                }
+
+                else
+                    {
+                        var temp = files.JSpa(pack, $"$.sounds.{annonName}");
+                        new playback().AddQueue(temp);
+                    }
+                new playback().playQueue();
                 seqCount++;
+                sleep = 1000;
             }
 
             curAnnon++;
-            if (curAnnon == annonAmount + 1)
+            if (curAnnon > annonAmount)
             {
                 curStop++;
                 curAnnon = 0;
